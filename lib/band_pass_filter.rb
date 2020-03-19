@@ -1,6 +1,13 @@
 class BandPassFilter
 
-  def filter(frequencies, high_limit, low_limit)
-    frequencies
+  def initialize
+    @filtered = []
+  end
+
+  def filter(frequencies, low_limit, high_limit)
+    frequencies.each{|freq| 
+      freq < low_limit ? @filtered << low_limit : @filtered << freq
+    }
+    @filtered
   end
 end
