@@ -14,9 +14,14 @@ describe 'Band Pass Filter' do
       end
     end
 
-    it 'should can a number to the low limit if it is below the low limit' do
+    it 'should change a number to the low limit if it is below the low limit' do
       band_pass_filter = BandPassFilter.new()
       expect(band_pass_filter.filter([5], 10, 70)).to eq [10]
+    end
+
+    it 'should change a number to the high limit if it is above the high limit' do
+      band_pass_filter = BandPassFilter.new()
+      expect(band_pass_filter.filter([80], 10, 70)).to eq [70]
     end
   end
 end
